@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
-import { SWITCH_IVY_ENABLED__POST_R3__ } from '@angular/core/src/ivy_switch';
 
 @Component({
     selector: 'events-list',
-    templateUrl: `./events-list.component.html`
+    template: `
+    <div>
+        <h1>Upcoming Angular Events</h1>
+        <hr />
+        <event-thumbnail [event]="event1"></event-thumbnail>    
+    </div>
+    `
     })
 
 export class EventsListComponent{
-    event = {
+    event1 = {
         name: 'Angular Connect',
         date: '9/26/2036',
         time: '10:00 am',
