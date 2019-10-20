@@ -15,13 +15,14 @@ import { Component, Input } from "@angular/core";
                 <span>{{event.location.city}}, {{event.location.country}}</span>
             </div>
                  
-    `
+    `,
+    styles: [`
+        .thumbnail { min-height: 210px; },
+        .pad-left { margin-left: 10px; },
+        .well div { color: #bbb; }
+    `]
 })
 
 export class EventThumbnailComponent {
     @Input() event: any
-    someProperty: any = "some value"
-    logFoo() {
-        console.log("here is some foo")
-    }
 }
