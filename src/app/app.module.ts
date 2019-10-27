@@ -28,7 +28,21 @@ import { EventRouteActivator } from './events/event-details/event-route-activato
     CreateEventComponent,
     Error404Component
   ],
-  providers: [EventService, ToastrService, EventRouteActivator],
+  providers: [
+    EventService, 
+    ToastrService, 
+    EventRouteActivator,
+    {
+      provide: 'canDeactivateCreateEvent',
+      useValue: checkDirtState
+    }
+  ],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
+
+export function checkDirtState(component:CreateEventComponent)  {
+  if(component.isDirty)
+    return window.confirm('You have not saved this event, do you really want to cancel?') 
+  return true
+}
