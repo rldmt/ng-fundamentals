@@ -5,7 +5,8 @@ import { Subject, Observable } from 'rxjs'
 export class EventService {
     getEvents():Observable<any> {
         let subject = new Subject()
-        setTimeout(() => {subject.next(EVENTS); subject.complete();}, 2000)
+        // vonohet 0.1 sekonda per load
+        setTimeout(() => {subject.next(EVENTS); subject.complete();}, 100)
         return subject
     }
 
