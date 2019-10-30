@@ -18,6 +18,7 @@ import { NavBarComponent } from './nav/navbar.component';
 import { ToastrService } from './common/toastr.service';
 import { appRoutes } from './routes';
 import { Error404Component } from './events/errors/404.component';
+import { AuthService } from './user/auth.service';
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import { Error404Component } from './events/errors/404.component';
     ToastrService, 
     EventRouteActivator,
     EventListResolver,
+    AuthService,
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtState
