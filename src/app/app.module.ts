@@ -7,6 +7,7 @@ import {
   EventThumbnailComponent,
   EventService,
   EventDetailsComponent,
+  CreateSessionComponent,
   CreateEventComponent,
   EventRouteActivator,
   EventListResolver
@@ -35,6 +36,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavBarComponent,
     EventDetailsComponent,
     CreateEventComponent,
+    CreateSessionComponent,
     Error404Component
   ],
   providers: [
