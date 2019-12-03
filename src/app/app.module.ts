@@ -16,7 +16,7 @@ import {
 } from './events/index';
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
-import { JQ_TOKEN, TOASTR_TOKEN, Toastr, CollapsibleWell, SimpleModalComponent } from './common/index';
+import { JQ_TOKEN, TOASTR_TOKEN, Toastr, CollapsibleWell, SimpleModalComponent, ModalTriggerDirective } from './common/index';
 import { appRoutes } from './routes';
 import { Error404Component } from './events/errors/404.component';
 import { AuthService } from './user/auth.service';
@@ -44,7 +44,8 @@ let jQuery = window['$'];
     SessionListComponent,
     CollapsibleWell,
     DurationPipe,
-    SimpleModalComponent
+    SimpleModalComponent,
+    ModalTriggerDirective
   ],
   providers: [
     EventService,
