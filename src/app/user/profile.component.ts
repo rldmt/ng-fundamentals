@@ -15,44 +15,45 @@ import { TOASTR_TOKEN, Toastr } from '../common/toastr.service'
     .error :-ms-input-placeholder { color: #999; }
   `]
 })
-export class ProfileComponent implements OnInit{
+export class ProfileComponent implements OnInit {
   profileForm: FormGroup
   private firstName: FormControl
   private lastName: FormControl
 
-  constructor(private authService:AuthService, 
-    private router:Router,
-    @Inject(TOASTR_TOKEN) private toastr: Toastr)  {
+  constructor(private authService: AuthService, private router: Router,
+    @Inject(TOASTR_TOKEN) private toastr: Toastr) {
 
   }
-  
-  ngOnInit()  {
+
+  ngOnInit() {
     this.firstName = new FormControl(this.authService.currentUser.firstName, [Validators.required, Validators.pattern('[a-zA-Z].*')])
     this.lastName = new FormControl(this.authService.currentUser.lastName, [Validators.required, Validators.pattern('[a-zA-Z].*')])
-    
+
     this.profileForm = new FormGroup({
       firstName: this.firstName,
       lastName: this.lastName
     })
 
   }
-  
+
+  saveProfile(formValues) {
+    if (this.profileForm.valid) {
+      this.authService.updateCurrentUser(formValues.firstName, formValues.lastName)
+        .subscribe(() => {
+          this.toastr.success("Profile saved!");
+        });
+    }
+  }
+
   validateFirstName() {
     return this.firstName.valid || this.firstName.untouched
   }
 
   validateLastName() {
     return this.lastName.valid || this.lastName.untouched
-  } 
-
-  saveProfile(formValues) {
-    if (this.profileForm.valid) {
-      this.authService.updateCurrentUser(formValues.firstName, formValues.lastName)
-      this.toastr.success("Profile saved!")
-    }
   }
 
-  cancel()  {
-    this.router.navigate(['events'])    
+  cancel() {
+    this.router.navigate(['events'])
   }
 }
