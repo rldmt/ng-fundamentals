@@ -30,9 +30,9 @@ describe('SessionListComponent', () => {
     }))
 
     beforeEach(() => {
-        TestBed.createComponent(SessionListComponent);
-        component: fixture.componentInstance;
-        debugEl: fixture.debugElement;
-        element: fixture.nativeElement;
+        fixture = TestBed.createComponent(SessionListComponent);
+        component = fixture.componentInstance;
+        debugEl = fixture.debugElement;
+        element = fixture.nativeElement;
     })
 })
